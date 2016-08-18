@@ -15,6 +15,9 @@ Ember.Application.initializer({
 });
 
 App.Router.map(function() {
+  
+  //token route to set acl via ui
+  this.route("token", { path: "/token" });
   // Our parent datacenter resource sets the namespace
   // for the entire application
   this.resource("dc", {path: "/:dc"}, function() {
