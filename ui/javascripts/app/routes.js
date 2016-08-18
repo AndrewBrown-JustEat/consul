@@ -64,6 +64,22 @@ App.BaseRoute = Ember.Route.extend({
 });
 
 //
+//The route for setting the token
+//
+App.TokenRoute = App.BaseRoute.extend({
+  beforeModel: function(transition){
+
+    var token = transition.queryParams.tokenvalue;
+    var key = transition.queryParams.kvpath;
+    var dc = transition.queryParams.dc;
+    var url = "/"+dc+"/kv/"+key+"/edit"
+    
+    App.set('settings.token',token);
+    this.transitionTo(url);
+  }
+});
+
+//
 // The route for choosing datacenters, typically the first route loaded.
 //
 App.IndexRoute = App.BaseRoute.extend({
