@@ -69,11 +69,10 @@ App.BaseRoute = Ember.Route.extend({
 App.TokenRoute = App.BaseRoute.extend({
   beforeModel: function(transition){
 
-    var token = transition.queryParams.tokenvalue;
+    var token = transition.queryParams.token;
     var key = transition.queryParams.kvpath;
-    var dc = transition.queryParams.dc;
-    var url = "/"+dc+"/kv/"+key+"/edit"
-    
+    var url = key+"/edit"
+
     App.set('settings.token',token);
     this.transitionTo(url);
   }
